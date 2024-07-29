@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM'S LIBRARY</title>
+    <!-- Menyertakan file CSS eksternal untuk gaya halaman login -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <!-- Menyertakan pustaka ikon Boxicons untuk ikon yang digunakan di halaman -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Kontainer utama untuk form login -->
+    <div class="wrapper">
+        <!-- Form login yang mengirimkan data dengan metode POST -->
+        <form method="POST" action="/login">
+            <!-- Judul form login -->
+            <h1>Login</h1>
+            <!-- Menampilkan pesan flash jika ada -->
+            {%for category, message in get_flashed_messages(with_categories=True)%}
+            <div class="alert alert-danger {{ category }} col-lg-6 offset-lg-3" role="alert">{{ message }}</div>
+            {%endfor%}
+            <!-- Kontainer input untuk email -->
+            <div class="input-box">
+                <input type="text" placeholder="Email" id="email" name="email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <!-- Kontainer input untuk password -->
+            <div class="input-box">
+                <input type="password" placeholder="Password" id="password" name="password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <!-- Kontainer untuk opsi "remember me" dan link "forgot password" -->
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <!-- Tombol untuk mengirim form -->
+            <button type="submit" class="btn">Login</button>
+            <!-- Link untuk registrasi jika belum memiliki akun -->
+            <div class="register-link">
+                <p>Don't have an account? <a href="/register">Register</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

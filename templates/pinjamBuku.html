@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM'S LIBRARY</title>
+    <!-- Menyertakan file CSS dari direktori static untuk gaya halaman -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <!-- Menyertakan ikon dari Boxicons untuk elemen ikon di halaman -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Header halaman dengan judul -->
+    <header>
+        <h1>SAM'S LIBRARY</h1>
+    </header>
+
+    <!-- Navigasi utama dengan tautan ke berbagai halaman -->
+    <nav>
+        <ul>
+            <li><a href="{{url_for('home')}}" class="active">Beranda</a></li>
+            <li><a href="{{url_for('pinjam')}}">Peminjaman</a></li>
+            <li><a href="{{url_for('kembali')}}">Pengembalian</a></li>
+            <li><a href="{{url_for('search')}}"><i class='bx bx-search'></i></a></li>
+            
+            <!-- Dropdown menu untuk profil pengguna -->
+            <div class="dropdown">
+                <li>
+                    <a href="#">
+                        Hi, {% if session['name'] %}{{ session['name'].split()[0] }}{% endif %}
+                        <i class='bx bxs-user'></i>
+                    </a>                    
+                </li>
+                <!-- Konten dropdown menu dengan tautan logout -->
+                <div class="content">
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Kontainer utama untuk form peminjaman buku -->
+    <div class="content-form">
+        <!-- Judul form -->
+        <h2>Form Peminjaman Buku</h2>
+
+        <!-- Kontainer untuk pesan popup -->
+        <div class="popup-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="popup">
+                        {% for category, message in messages %}
+                            <p class="{{ category }}">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <!-- Form peminjaman buku -->
+        <form action="{{ url_for('pinjam') }}" method="post">
+            <!-- Input untuk nama -->
+            <label for="name">Nama:</label>
+            <input type="text" name="name" placeholder="Ex: Jack Ryan" required />
+
+            <!-- Input untuk NIM -->
+            <label for="nim">NIM:</label>
+            <input type="text" name="nim" id="nim" placeholder="Ex: 10101010" required />
+
+            <!-- Input untuk judul buku -->
+            <label for="judul">Judul Buku:</label>
+            <input type="text" name="judul" id="judul" placeholder="Ex: Laskar Pelangi" required />
+
+            <!-- Input untuk tanggal peminjaman -->
+            <label for="tanggal-pinjam">Tanggal Peminjaman:</label>
+            <input type="date" name="tanggal-pinjam" id="tanggal-pinjam" required />
+
+            <!-- Tombol kirim form -->
+            <button type="submit"><strong>PINJAM</strong></button>
+        </form>
+    </div>
+
+    <!-- Footer halaman dengan informasi hak cipta -->
+    <footer>
+        &copy; Developed By Samuel Mahesa Sinulingga. <b>All Rights Reserved.</b>
+    </footer>
+</body>
+</html>

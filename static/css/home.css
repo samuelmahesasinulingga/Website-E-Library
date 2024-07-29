@@ -1,0 +1,229 @@
+/* Mengimpor font dari Google Fonts untuk digunakan dalam halaman */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Mengatur gaya dasar untuk body halaman */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif; 
+    background: #f0f0f0; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memastikan body memiliki tinggi minimal 100vh */
+}
+
+/* Mengatur gaya header */
+header {
+    background: #36C2CE;
+    color: white; 
+    text-align: center;
+    padding: 20px 0; 
+}
+
+/* Mengatur gaya judul utama di header */
+h1 {
+    margin: 0; 
+}
+
+/* Mengatur gaya navigasi */
+nav ul {
+    list-style-type: none; /* Menghilangkan bullet points dari list */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    background: linear-gradient(to right, #0070b8, #00a6a6); 
+}
+
+/* Mengatur gaya item list di navigasi */
+nav ul li {
+    margin: 10px; 
+}
+
+/* Mengatur gaya tautan di navigasi */
+nav ul li a {
+    color: white;
+    text-decoration: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    transition: 0.5s ease; 
+}
+
+/* Mengatur gaya tautan saat hover atau aktif */
+nav ul li a:hover,
+nav ul li a.active {
+background-color: #478CCF; 
+}
+
+/* Mengatur gaya dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Mengatur gaya konten dropdown menu */
+.content {
+    display: none; /* Menyembunyikan konten dropdown secara default */
+    position: absolute;
+    background: #0070b8; 
+    min-width: 150px;
+    font-size: 16px;
+    z-index: 1; /* Mengatur z-index agar konten muncul di atas */
+    border-top: 1px solid white; 
+    border-radius: 20px; 
+}
+
+/* Menampilkan konten dropdown saat hover */
+.dropdown:hover .content {
+    display: block;
+}
+
+/* Mengatur gaya tautan di dalam dropdown menu */
+.content a {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgb(197, 197, 250); 
+    display: block;
+    transition: all 0.5s !important; /* Transisi lembut untuk efek hover */
+    color: black; 
+    text-decoration: none; 
+}
+
+/* Mengatur gaya konten dropdown saat hover */
+.content:hover {
+    background-color: #478CCF; 
+    color: white; 
+}
+
+/* Mengatur gaya tautan terakhir di dropdown menu */
+.content a:last-child {
+    border-bottom: none; /* Menghilangkan garis batas bawah pada tautan terakhir */
+}
+
+/* Mengatur gaya kontainer utama */
+.container {
+    max-width: 960px; 
+    height: 500px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    background-color: white; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1); 
+    flex: 1;
+}
+
+/* Mengatur gaya bagian sambutan */
+.library {
+    text-align: center;
+}
+
+/* Mengatur gaya judul di bagian sambutan */
+.library h2 {
+    color: #333; 
+}
+
+/* Mengatur gaya paragraf di bagian sambutan */
+.library p {
+    color: #666; 
+}
+
+/* Mengatur gaya posisi kartu buku */
+.pos {
+    display: flex;
+    justify-content: space-between; /* Menyebar kartu secara horizontal */
+    flex-wrap: wrap; 
+    align-items: center;
+    margin-bottom: 20px; 
+    gap: 20px; /* Jarak antara kartu */
+}
+
+/* Mengatur gaya kartu buku */
+.card {
+    width: 280px; /* Lebar kartu */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #0070b8; 
+    padding: 10px; 
+    background-color: #f5f5f5; 
+    margin: 10px 0; 
+    border-radius: 5px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+    transition: transform 0.3s ease; /* Transisi lembut untuk efek hover */
+    height: 400px;
+    box-sizing: border-box; 
+}
+
+/* Mengatur gaya kartu saat hover */
+.card:hover {
+    transform: scale(1.1); /* Meningkatkan ukuran kartu */
+    border: 1px solid #00a6a6; /* Mengubah warna garis batas */
+}
+
+/* Mengatur gaya gambar di dalam kartu */
+.card-image {
+    width: 250px; 
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center; 
+}
+
+/* Mengatur gaya gambar di dalam kartu */
+.card-image img {   
+    display: block;
+    margin: 0 auto; 
+    width: 150px; 
+    height: 180px;
+}
+
+/* Mengatur gaya detail buku di dalam kartu */
+.card-details {
+    text-align: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Mengatur gaya judul buku di dalam kartu */
+.book-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Mengatur gaya detail buku di dalam kartu */
+.book-details {
+    color: #777;
+    margin-bottom: 10px; 
+}
+
+/* Mengatur gaya tombol di dalam kartu */
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; 
+}
+
+/* Mengatur gaya tombol */
+.btn {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #00a6a6; 
+    color: white; 
+    text-decoration: none; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: 0.3s ease; /* Transisi lembut untuk efek hover */
+    margin: 0 5px; 
+}
+
+/* Mengatur gaya tombol saat hover */
+.btn:hover {
+    background-color: #0070b8; 
+}
+
+/* Mengatur gaya footer */
+footer {
+    background: linear-gradient(to right, #00a6a6, #0070b8); 
+    color: white; 
+    text-align: center;
+    padding: 10px 0; 
+    margin-top: auto; /* Margin atas otomatis untuk menempatkan footer di bagian bawah halaman */
+}

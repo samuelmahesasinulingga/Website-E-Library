@@ -1,0 +1,144 @@
+/* Mengimpor font dari Google Fonts untuk digunakan dalam halaman */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Mengatur gaya dasar untuk body halaman */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif; 
+    background: #f0f0f0; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memastikan body memiliki tinggi minimal 100vh */
+}
+
+/* Mengatur gaya header */
+header {
+    background: #36C2CE;
+    color: white; 
+    text-align: center;
+    padding: 20px 0; 
+}
+
+/* Mengatur gaya judul utama di header */
+h1 {
+    margin: 0; 
+}
+
+/* Mengatur gaya navigasi */
+nav ul {
+    list-style-type: none; /* Menghilangkan bullet points dari list */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    background: linear-gradient(to right, #0070b8, #00a6a6); 
+}
+
+/* Mengatur gaya item list di navigasi */
+nav ul li {
+    margin: 10px; 
+}
+
+/* Mengatur gaya tautan di navigasi */
+nav ul li a {
+    color: white;
+    text-decoration: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    transition: 0.5s ease; 
+}
+
+/* Mengatur gaya tautan saat hover atau aktif */
+nav ul li a:hover,
+nav ul li a.active {
+background-color: #478CCF; 
+}
+
+/* Mengatur gaya dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Mengatur gaya konten dropdown menu */
+.content {
+    display: none; /* Menyembunyikan konten dropdown secara default */
+    position: absolute;
+    background: #0070b8; 
+    min-width: 150px;
+    font-size: 16px;
+    z-index: 1; /* Mengatur z-index agar konten muncul di atas */
+    border-top: 1px solid white; 
+    border-radius: 20px; 
+}
+
+/* Menampilkan konten dropdown saat hover */
+.dropdown:hover .content {
+    display: block;
+}
+
+/* Mengatur gaya tautan di dalam dropdown menu */
+.content a {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgb(197, 197, 250); 
+    display: block;
+    transition: all 0.5s !important; /* Transisi lembut untuk efek hover */
+    color: black; 
+    text-decoration: none; 
+}
+
+/* Mengatur gaya konten dropdown saat hover */
+.content:hover {
+    background-color: #478CCF; 
+    color: white; 
+}
+
+/* Mengatur gaya tautan terakhir di dropdown menu */
+.content a:last-child {
+    border-bottom: none; /* Menghilangkan garis batas bawah pada tautan terakhir */
+}
+
+/* Gaya untuk kontainer utama form pencarian */
+.container {
+    max-width: 960px;
+    width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+}
+
+/* Gaya untuk input dalam form di dalam kontainer */
+.container form input {
+    width: 65%;
+    font-size: 16px;
+    padding: 4px;
+}
+
+/* Gaya untuk tombol dalam form di dalam kontainer */
+.container form button {
+    padding: 4px;
+    width: 8%;
+    border-radius: 10%;
+}
+
+/* Gaya untuk ikon di dalam tombol */
+.container form button i {
+    font-size: 120%;
+}
+
+/* Gaya saat hover pada tombol */
+button:hover {
+    background-color: aqua;
+}
+
+/* Mengatur gaya footer */
+footer {
+    background: linear-gradient(to right, #00a6a6, #0070b8); 
+    color: white; 
+    text-align: center;
+    padding: 10px 0; 
+    margin-top: auto; /* Margin atas otomatis untuk menempatkan footer di bagian bawah halaman */
+}

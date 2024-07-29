@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM'S LIBRARY</title>
+    <!-- Menyertakan file CSS eksternal untuk gaya halaman pencarian -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+    <!-- Menyertakan pustaka ikon Boxicons untuk ikon yang digunakan di halaman -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Header bagian atas halaman, menampilkan nama perpustakaan -->
+    <header>
+        <h1>SAM'S LIBRARY</h1>
+    </header>
+    <!-- Navigasi utama dengan menu yang dapat diakses -->
+    <nav>
+        <ul>
+            <!-- Link ke halaman Beranda dengan kelas aktif -->
+            <li><a href="{{url_for('home')}}" class="active">Beranda</a></li>
+            <!-- Link ke halaman Peminjaman -->
+            <li><a href="{{url_for('pinjam')}}">Peminjaman</a></li>
+            <!-- Link ke halaman Pengembalian -->
+            <li><a href="{{url_for('kembali')}}">Pengembalian</a></li>
+            <!-- Link ke halaman Pencarian dengan ikon pencarian -->
+            <li><a href="{{url_for('search')}}"><i class='bx bx-search'></i></a></li>
+            <!-- Dropdown untuk menu pengguna yang sedang login -->
+            <div class="dropdown">
+                <li>
+                    <a href="#">
+                        Hi, {% if session['name'] %}{{ session['name'].split()[0] }}{% endif %}
+                        <i class='bx bxs-user'></i>
+                    </a>                    
+                </li>
+                <!-- Konten dropdown yang muncul saat hover -->
+                <div class="content">
+                    <!-- Link untuk logout -->
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                </div>
+            </div>
+        </ul>
+    </nav>
+    <!-- Kontainer utama untuk form pencarian dan hasil pencarian -->
+    <div class="container">
+        <!-- Form pencarian buku -->
+        <form action="{{ url_for('search') }}" method="post">
+            <!-- Label untuk input pencarian buku -->
+            <label for="search_query"><b>Judul Buku:</b></label>
+            <!-- Input untuk memasukkan judul buku yang dicari -->
+            <input type="text" id="search_query" name="search_query" placeholder="Masukkan judul buku yang ingin dicari" required>
+            <!-- Tombol untuk mengirim form pencarian dengan ikon pencarian -->
+            <button type="submit"><i class='bx bx-search'></i></button>
+        </form>
+        
+        <!-- Daftar hasil pencarian buku -->
+        <ul>
+            {% for book in books %}
+            <li>
+                <!-- Menampilkan judul buku dan genre -->
+                <strong>{{ book.judul }}</strong> - {{ book.genre }}<br>
+                
+                <!-- Menampilkan status buku dengan warna berbeda -->
+                {% if book.status == 'dipinjam' %}
+                <p>Status: <span style="color: red;">{{ book.status }}</span></p>
+                {% else %}
+                <p>Status: <span style="color: green;">{{ book.status }}</span></p>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Footer bagian bawah halaman, menampilkan informasi pengembang -->
+    <footer>
+        &copy; Developed By Samuel Mahesa Sinulingga. <b>All Rights Reserved.</b>
+    </footer>
+</body>
+</html>
